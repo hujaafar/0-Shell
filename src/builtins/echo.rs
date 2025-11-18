@@ -1,10 +1,14 @@
-pub fn run(args: &[String]) -> Result<(), String> {
+use std::io::Write;
+
+pub fn run(args: &[String], output: &mut dyn Write) -> Result<(), String> {
     let mut first = true;
     for a in args {
-        if !first { print!(" "); }
-        print!("{}", a);
+        if !first {
+            write!(output, " ").map_err(|e| e.to_string())?;
+        }
+        write!(output, "{}", a).map_err(|e| e.to_string())?;
         first = false;
     }
-    println!();
+    writeln!(output).map_err(|e| e.to_string())?;
     Ok(())
 }
