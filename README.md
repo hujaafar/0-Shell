@@ -66,7 +66,7 @@ The shell also exits on **Ctrl+D** (EOF).
 
 ```bash
 $ pwd
-/mnt/c/Users/AliHa/0-shell
+
 
 $ ls -F
 Cargo.lock*
